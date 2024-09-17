@@ -165,181 +165,70 @@
         <hr class="mb-3">
         <form class="validation-form" id="QRpass" novalidate>
           <div class="row">
-            <div class="col-md-6 mb-3">
-              <label for="name">이름</label>
-              <input type="text" class="form-control" id="in_name" placeholder="홍길동" value="" required>
-              <div class="invalid-feedback">
-                이름을 입력해주세요.
-              </div>
-            </div>
-            <div class="col-md-6 mb-3">
-              <label for="birth">생년월일</label>
-              <input type="number" pattern="\d*" class="form-control" id="birth" placeholder="생년월일 6자리(991230)" value="" oninput='handleOnInput_birth(this)' required>
-              <div class="invalid-feedback">
-                생년월일을 입력해주세요.
-              </div>
-            </div>
-          </div>
-          <div class="mb-3">
-            <label for="phone_num">전화번호</label>
-            <input type="number" pattern="\d*" class="form-control" id="phone_num" placeholder="숫자만 입력하세요." oninput='handleOnInput(this)' required>
-            <div class="invalid-feedback">
-              전화번호를 입력해주세요.(*숫자만 입력)
-            </div>
-          </div>
-          <div class="mb-3">
-            <label for="bank_num">계좌번호</label>
-            <input type="number" pattern="\d*" class="form-control" id="bank_num" placeholder="숫자만 입력하세요." required>
-            <div class="invalid-feedback">
-              계좌번호를 입력해주세요.(*숫자만 입력)
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-8 mb-3" id="bankBox">
-              <label for="bank_name">은행<span style=" font: 0.85em/1em sans-serif ; color: #797979;">&nbsp;  * 증권사 계좌는 입력하지 마세요.</span></label>
-              <select type="text" class="custom-select d-block w-100" id="bank_name" onchange="bank_input_box_func(this)" required>
-                <option value="" selected>은행 선택</option>
-                <option value="국민">국민</option>
-                <option value="기업">기업</option>
-                <option value="농협">농협</option>
-                <option value="신한">신한</option>
-                <option value="우리">우리</option>
-                <option value="카카오">카카오</option>
+            <div class="col-md-8 mb-3" id="mlevel">
+              <label for="m_level">계급</label>
+              <select type="text" class="custom-select d-block w-100" id="m_level" onchange="level_input_box_func(this)" required>
+                <option value="" selected>계급 선택</option>
+                <option value="대위">대위</option>
+                <option value="중위">중위</option>
+                <option value="소위">소위</option>
+                <option value="원사">원사</option>
+                <option value="상사">상사</option>
+                <option value="중사">중사</option>
+                <option value="하사">하사</option>
                 <option value="기타">기타(직접입력)</option>
               </select>
               <div class="invalid-feedback">
-                은행명을 입력해주세요.
+                계급을 입력해주세요.
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="name">성명</label>
+              <input type="text" class="form-control" id="in_name" placeholder="홍길동" value="" required>
+              <div class="invalid-feedback">
+                성명을 입력해주세요.
               </div>
             </div>
           </div>
           <div class="row">
-            <div class="col-md-8 mb-3">
-              <label for="menu">도시락 선택<span style=" font: 0.85em/1em sans-serif ; color: #797979;">&nbsp;&nbsp;</span></label>
-              <select class="custom-select d-block w-100" id="menu" required>
-                <option value="">도시락 선택</option>
-                <option value="A">도시락 A</option>
-                <option value="B">도시락 B</option>
-                <option value="N">미희망</option>
+            <div class="col-md-8 mb-3" id="guntype">
+              <label for="gun_type">총기종류</label>
+              <select type="text" class="custom-select d-block w-100" id="gun_type" onchange="guntype_input_box_func(this)" required>
+                <option value="" selected>총기 선택</option>
+                <option value="K-1">K-1</option>
+                <option value="K-2">K-2</option>
+                <option value="K-2/201">K-2/201</option>
+                <option value="K2C1">K2C1</option>
+                <option value="K-3">K-3</option>
+                <option value="기타">기타(직접입력)</option>
               </select>
               <div class="invalid-feedback">
-                도시락을 선택해주세요.
+                총기종류를 입력해주세요.
               </div>
             </div>
           </div>
+          <div class="mb-3">
+            <label for="gun_num">총기번호<span style=" font: 0.85em/1em sans-serif ; color: #797979;">&nbsp;  * K-2/201 => 123456/000000 </span></label>
+            <input type="text" class="form-control" id="gun_num" placeholder="숫자만 입력하세요." oninput='handleOnInput(this)' required>
+            <div class="invalid-feedback">
+              총기번호를 입력해주세요.(*숫자만 입력)
+            </div>
+          </div>
+
           <hr class="mb-4">
           <!-- 문진표 Start -->
-          <h5 class="mb-3">전자문진표 및<span style=" font: 1em/1em sans-serif ; color: blue;"> 보안서약</h5>
+          <h5 class="mb-3">육규000/0조0항<span style=" font: 1em/1em sans-serif ; color: blue;"></h5>
           <fieldset class="mb-3"><br>
-            <fieldset class="form-group border p-3">
-              <tr>
-                <th scope="row" rowspan="2">1.</th>
-                <th scope="row"></th>
-                <td>현재 앓고 있는 만성질환이 있습니까?</td>
-              </tr>
-              <tr>
-                <th scope="row"></th>
-                <td>
-                  <div class="select">
-                    <span class="form-check">
-                      <input class="form-check-input" id="select1" type="radio" value="Y" name="quest1" required><label class="form-check-label" for="select1">예</label> &nbsp&nbsp&nbsp
-                    </span>
-                    <span class="form-check">
-                      <input class="form-check-input" id="select2" type="radio" value="N" name="quest1"><label class="form-check-label" for="select2">아니오</label>
-                    </span>
-                  </div>
-                </td>
-              </tr>
-            </fieldset>
-            <fieldset class="form-group border p-3">
-              <tr>
-                <th scope="row" rowspan="2">2.</th>
-                <th scope="row"></th>
-                <td>최근 운동 중 또는 운동 후, 갑작스런 흉통이나 호흡곤란, 실신, 어지러움 등의 증상을 경험한 적이 있습니까?</td>
-              </tr>
-              <tr>
-                <th scope="row"></th>
-                <td>
-                  <div class="select">
-                    <span class="form-check">
-                      <input class="form-check-input" id="select3" type="radio" value="Y" name="quest2" required><label class="form-check-label" for="select3">예</label> &nbsp&nbsp&nbsp
-                    </span>
-                    <span class="form-check">
-                      <input class="form-check-input" id="select4" type="radio" value="N" name="quest2"><label class="form-check-label" for="select4">아니오</label>
-                    </span>
-                  </div>
-                </td>
-              </tr>
-            </fieldset>
-            <fieldset class="form-group border p-3">
-              <tr>
-                <th scope="row" rowspan="2">3.</th>
-                <th scope="row"></th>
-                <td>의사로부터 혈압이 높거나 혈압약을 복용하라고 들은 적이 있습니까?</td>
-              </tr>
-              <tr>
-                <th scope="row"></th>
-                <td>
-                  <div class="select">
-                    <span class="form-check">
-                      <input class="form-check-input" id="select5" type="radio" value="Y" name="quest3" required><label class="form-check-label" for="select5">예</label> &nbsp&nbsp&nbsp
-                    </span>
-                    <span class="form-check">
-                      <input class="form-check-input" id="select6" type="radio" value="N" name="quest3"><label class="form-check-label" for="select6">아니오</label>
-                    </span>
-                  </div>
-                </td>
-              </tr>
-            </fieldset>
-            <fieldset class="form-group border p-3">
-              <tr>
-                <th scope="row" rowspan="2">4.</th>
-                <th scope="row"></th>
-                <td>최근 정신과적인 증상(불안, 우울, 불면 등)이 있습니까?</td>
-              </tr>
-              <tr>
-                <th scope="row"></th>
-                <td>
-                  <div class="select">
-                    <span class="form-check">
-                      <input class="form-check-input" id="select7" type="radio" value="Y" name="quest4" required><label class="form-check-label" for="select7">예</label> &nbsp&nbsp&nbsp
-                    </span>
-                    <span class="form-check">
-                      <input class="form-check-input" id="select8" type="radio" value="N" name="quest4"><label class="form-check-label" for="select8">아니오</label>
-                    </span>
-                  </div>
-                </td>
-              </tr>
-            </fieldset>
-            <fieldset class="form-group border p-3">
-              <tr>
-                <th scope="row" rowspan="2">5.</th>
-                <th scope="row"></th>
-                <td>오늘 몸 상태가 예비군훈련에 지장을 줍니까? (훈련이 제한되는 건강이상)</td>
-              </tr>
-              <tr>
-                <th scope="row"></th>
-                <td>
-                  <div class="select">
-                    <span class="form-check">
-                      <input class="form-check-input" id="select9" type="radio" value="Y" name="quest5" required><label class="form-check-label" for="select9">예</label> &nbsp&nbsp&nbsp
-                    </span>
-                    <span class="form-check">
-                      <input class="form-check-input" id="select10" type="radio" value="N" name="quest5"><label class="form-check-label" for="select10">아니오</label>
-                    </span>
-                  </div>
-                </td>
-              </tr>
-            </fieldset>
             <fieldset class="form-group border p-3">
               <tr>
                 <th scope="row" rowspan="2"></th>
                 <th scope="row"></th>
                 <td>
                   <span style="font: 1.05em/1em sans-serif; color: blue;">
-                    6. 개인소유 정보통신장비는 군사보호구역 출입에 따라 '국방부모바일보안앱'을 설치해야하며, 부대 내 사진촬영은 일체 금지합니다.
+                    개인화기는 본인이 직접 수령 및 반납하는 것이 원칙입니다.
                   </span><br>
-                  <span style="font: 1.04em/1em sans-serif; font-weight:bold; color: red;">무단사용 시 퇴소조치</span>
-                  <span style="font: 1.05em/1em sans-serif; color: blue;">되며 어떠한 이의도 제기하지 않을 것을 동의합니다.</span>
+                  <span style="font: 1.04em/1em sans-serif; font-weight:bold; color: red;">이를 위반할 경우 징계 등</span>
+                  <span style="font: 1.05em/1em sans-serif; color: blue;">불이익이 있을 수 있으며 어떠한 이의도 제기하지 않을 것을 동의합니다.</span>
                 </td>
               </tr>
               <tr>
@@ -347,10 +236,10 @@
                 <td>
                   <div class="select">
                     <span class="form-check">
-                      <input type="radio" name="q6" id="q6Check1" value="A" class="form-check-input" required> <label class="form-check-label" for="q6Check1">동의</label> &nbsp&nbsp&nbsp
+                      <input type="radio" name="agr" id="agrCheck1" value="A" class="form-check-input" required> <label class="form-check-label" for="agrCheck1">동의</label> &nbsp&nbsp&nbsp
                     </span>
                     <span class="form-check">
-                      <input type="radio" name="q6" id="q6Check2" value="NA" class="form-check-input"> <label class="form-check-label" for="q6Check2">동의하지 않음</label>
+                      <input type="radio" name="agr" id="agrCheck2" value="NA" class="form-check-input"> <label class="form-check-label" for="agrCheck2">동의하지 않음</label>
                     </span>
                   </div>
                 </td>
@@ -359,7 +248,7 @@
           </fieldset>
           <hr class="mb-4">
           <span style=" font: 0.85em/1em sans-serif ; color: #797979;">
-            상기 문진결과와 계좌는 예비군훈련 통제 및 행정처리에만 사용되며, 훈련 종료 후 파기 됩니다. 상기명 본인은 예비군 전자문진 결과 및 위의 개인정보 사용에 대하여 동의합니다.
+            상기 인적사항은 행정처리에만 사용되며, 웹페이지(서버) 상에는 어떠한 정보도 저장되지 않습니다. 상기명 본인은 개인정보 사용에 대하여 동의합니다.
           </span>
           <div class="custom-control custom-checkbox"><br>
             <input type="checkbox" class="custom-control-input" id="aggrement" required>
@@ -398,15 +287,10 @@
     <p class="mb-1"><span style=" font: 1em/0.1em sans-serif;">v0.1.01</span></p><br>
   </footer>
   <script>
-    function handleOnInput_birth(el) {
-      if (!(el.value.length === 6)) {
-        el.value = el.value.substr(0, 6);
-      }
-    }
 
     function handleOnInput(el) {
-      if (!(el.value.length === 10) && !(el.value.length === 11)) {
-        el.value = el.value.substr(0, 11);
+      if (!(el.value.length === 6) && !(el.value.length === 13)) {
+        el.value = el.value.substr(0, 13);
       }
     }
 
@@ -419,14 +303,28 @@
       return !regexp.test(obj.value);
     }
 
-    function bank_input_box_func(obj) {
+    function level_input_box_func(obj) {
       if (obj.value=="기타") {
         i = document.createElement("input");
         i.setAttribute("type", "text");
         i.setAttribute("class", "form-control");
-        i.setAttribute("id", "bank_name");
-        i.setAttribute("placeholder", "은행명을 입력해주세요.");
-        i.setAttribute("name", "bank_name_input");
+        i.setAttribute("id", "m_level");
+        i.setAttribute("placeholder", "계급을 입력해주세요.");
+        i.setAttribute("name", "m_level_input");
+        i.setAttribute("required", "true");
+        obj.parentElement.appendChild(i);
+        obj.remove();
+      }
+    }
+
+    function guntype_input_box_func(obj) {
+      if (obj.value=="기타") {
+        i = document.createElement("input");
+        i.setAttribute("type", "text");
+        i.setAttribute("class", "form-control");
+        i.setAttribute("id", "gun_type");
+        i.setAttribute("placeholder", "총기종류을 입력해주세요.");
+        i.setAttribute("name", "gun_type_input");
         i.setAttribute("required", "true");
         obj.parentElement.appendChild(i);
         obj.remove();
@@ -543,38 +441,12 @@
       return res;
     }
 
-    
-    function check_quest(){
-
-      var prob = "건강이상"
-      var noprob = "정상"
-
-      if ($('input[name="quest1"]:checked').val() == "Y") {
-        return prob;
-      }
-      else if ($('input[name="quest2"]:checked').val() == "Y") {
-        return prob;
-      }
-      else if ($('input[name="quest3"]:checked').val() == "Y") {
-        return prob;
-      }
-      else if ($('input[name="quest4"]:checked').val() == "Y") {
-        return prob;
-      }
-      else if ($('input[name="quest5"]:checked').val() == "Y") {
-        return prob;
-      }
-      else {
-        return noprob;
-      }
-    }
-
 
     function check_agree() {
       var agree = "동의"
       var notagree = "비동의"
 
-      if ($("input[name='q6']:checked").val() == "NA") {
+      if ($("input[name='agr']:checked").val() == "NA") {
         return notagree;
       }
 
@@ -583,43 +455,19 @@
       }
     }
 
-    // MEMO: 엑셀 버전 메모
-    // phone_number.value + '\t'
-    // + "'" + bank_number.value + '\t'
-    // + translateKorToEng(bank_name.value) + '\t' + '\t' //은행코드자리 넘김 추가
-    // + translateKorToEng(lunch_menu.value) + '\t'
-    // + translateKorToEng($("input[name='quest1']:checked").val()) + '\t'
-    // + translateKorToEng($("input[name='quest2']:checked").val()) + '\t'
-    // + translateKorToEng($("input[name='quest3']:checked").val()) + '\t'
-    // + translateKorToEng($("input[name='quest4']:checked").val()) + '\t'
-    // + translateKorToEng($("input[name='quest5']:checked").val()) + '\t'
-    // + translateKorToEng($("input[name='q6']:checked").val()) + '\t',
-
-    // MEMO: 과학화버전 메모
-    // translateKorToEng(bank_name.value) + '\t'
-    // + bank_number.value + '\t'
-    // + translateKorToEng(check_quest()) + '/'
-    // + translateKorToEng(check_agree()) + '/'
-    // + phone_number.value,
-
     function createQrCode() {
+      var user_level = document.getElementById("m_level");
       var user_name = document.getElementById("in_name");
-      var user_birth = document.getElementById("birth");
-      var phone_number = document.getElementById("phone_num");
-      var bank_number = document.getElementById("bank_num");
-      var bank_name = document.getElementById("bank_name");
-      var lunch_menu = document.getElementById("menu");
+      var usergun_type = document.getElementById("gun_type");
+      var usergun_number = document.getElementById("gun_num");
       $("#container").html('');
 
       if (confirm(
-              "이름 : "+ user_name.value +"\n"+
-              "생년월일 : "+ user_birth.value +"\n"+
-              "전화번호 : "+ phone_number.value +"\n"+
-              "계좌번호 : "+ bank_number.value +"\n"+
-              "은행명 : "+ bank_name.value +"\n"+
-              "도시락 : "+ lunch_menu.value +"\n"+
-              "문진결과 : "+ check_quest() +"\n"+
-              "보안서약 : "+ check_agree() +"\n"+
+              "계급 : "+ user_level.value +"\n"+
+              "성명 : "+ in_name.value +"\n"+
+              "총기종류 : "+ gun_type.value +"\n"+
+              "총기번호 : "+ gun_num.value +"\n"+
+              "규정동의 : "+ check_agree() +"\n"+
               "입력한 내용이 맞습니까?") == true
       ) {
         $(function make() {
@@ -635,16 +483,8 @@
             fill: '#000000',
             background: 'white',
             text:
-                phone_number.value + '\t'
-                + "'" + bank_number.value + '\t'
-                + translateKorToEng(bank_name.value) + '\t' + '\t' //은행코드자리 넘김 추가
-                + translateKorToEng(lunch_menu.value) + '\t'
-                + translateKorToEng($("input[name='quest1']:checked").val()) + '\t'
-                + translateKorToEng($("input[name='quest2']:checked").val()) + '\t'
-                + translateKorToEng($("input[name='quest3']:checked").val()) + '\t'
-                + translateKorToEng($("input[name='quest4']:checked").val()) + '\t'
-                + translateKorToEng($("input[name='quest5']:checked").val()) + '\t'
-                + translateKorToEng($("input[name='q6']:checked").val()) + '\t',
+                gun_type.value +' '+ gun_num.value + '\t' + '\t' //계급 자리 넘김
+                + translateKorToEng(user_name.value) + '\t',
             radius: 0,
             quiet: 10,
             mode: 4,
@@ -666,8 +506,8 @@
     }
 
     $(document).ready(function() {
-      $('#q6Check2').click(function() {
-        alert('동의하지 않을 경우 훈련입소가 제한됩니다.');
+      $('#agrCheck2').click(function() {
+        alert('본인이 직접 수령 및 반납하기 바랍니다.');
       });
 
       $("input[type='checkbox']").on("click", () => {
@@ -693,21 +533,15 @@
             alert("누락된 항목을 확인하세요");
             event.stopPropagation();
             form.classList.add('was-validated');
+          } else if (!checkKorea(document.getElementById('m_level'))) {
+            alert('계급란에 초성, 영어, 숫자, 특수문자 등이 포함되어있습니다.');
+            event.stopPropagation();
           } else if (!checkKorea(document.getElementById('in_name'))) {
             alert('이름란에 초성, 영어, 숫자, 특수문자 등이 포함되어있습니다.');
             event.stopPropagation();
-          } else if ($("input[id='birth']").val().length < 6) {
-            alert('생년월일 6자리를 올바르게 입력해주세요.');
+          } else if ($("input[id='gun_num']").val().length < 6) {
+            alert('총번을 올바르게 입력해주세요.');
             event.stopPropagation();
-          } else if ($("input[id='phone_num']").val().length < 10) {
-            alert('전화번호를 올바르게 입력해주세요.');
-            event.stopPropagation();
-          } else if (!checkKorea(document.getElementById('bank_name'))) {
-            alert('은행란에 초성, 영어, 숫자, 특수문자 등이 포함되어있습니다.');
-            event.stopPropagation();
-            // } else if ($("input[name='q6']:checked").val() == 'undefined' || $("input[name='q6']:checked").val() == '미동의') {
-            // alert('훈련입소를 위해선 문진표 6번 항목의 동의가 필요합니다.');
-            // event.stopPropagation();
           } else if (form.checkValidity() === true) {
             // Create QR Code
             createQrCode();
